@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static int WIDTH = 1080;
-    public static int HEIGHT = 1920;
+    public GameObject smallShark;
+    public GameObject bigShark;
+    public GameObject octopus;
     
+    private SpawnEnemy enemyScript;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        enemyScript = GetComponent<SpawnEnemy>();
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameObject enemy = enemyScript.SpawnNewEnemy(smallShark);
     }
 }
