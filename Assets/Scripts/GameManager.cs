@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour
     // current level
     private static int level = 1;
     private static int score = 0;
+    private bool gameOver = false;
     private List<GameObject> enemies = new List<GameObject>();
     private List<GameObject> golds = new List<GameObject>();
     
@@ -26,10 +29,19 @@ public class GameManager : MonoBehaviour
     {
         // get spawner
         spawner = GetComponent<Spawner>();
-        
-        
-        
-        
+            
+    }
+
+    private void Update()
+    {
+        if (!gameOver)
+        {
+            // spawn golds
+            
+            // spawn enemies
+            
+            // check level
+        }
     }
 
     public int getScore()
@@ -42,24 +54,37 @@ public class GameManager : MonoBehaviour
         return level;
     }
 
+    public void addPoints(int points)
+    {
+        score += points;
+    }
+
+    public void setGameOver()
+    {
+        gameOver = true;
+    }
+        
+        
+    // enemy and pickup spawn methods    
     private void spawnSmallShark()
     {
         GameObject enemy = spawner.SpawnNew(smallShark, new Vector2(10, Random.Range(-3, 0)));
         enemies.Add(enemy);
+        enemy.GetComponent<EnemyController>().setSpeed(1);
     }
 
     private void spawnBigShark()
     {
         GameObject enemy = spawner.SpawnNew(bigShark, new Vector2(10, Random.Range(-3, 0)));
         enemies.Add(enemy);
-
+        enemy.GetComponent<EnemyController>().setSpeed(2);
     }
 
     private void spawnOctopus()
     {
         GameObject enemy = spawner.SpawnNew(octopus, new Vector2(10, Random.Range(-3, 0)));
         enemies.Add(enemy);
-
+        enemy.GetComponent<EnemyController>().setSpeed(2);
     }
 
     private void spawnSmallGold()
