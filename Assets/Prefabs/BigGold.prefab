@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8667917659549768551}
   - component: {fileID: 6993519646250617626}
   - component: {fileID: 690534412095975573}
+  - component: {fileID: -3504408752013939975}
   m_Layer: 0
   m_Name: BigGold
   m_TagString: Untagged
@@ -42,7 +43,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.013673857, y: -0.0888803}
@@ -107,3 +108,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3504408752013939975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8091777322016751014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58185f4c60f8d4c8a9d9a997d9d17297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 3

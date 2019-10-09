@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,5 +17,18 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2(speed, rb.velocity.y);
+    }
+
+    public void setSpeed(int newSpeed)
+    {
+        speed = newSpeed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.GetComponent<PlayerController>().addDamage();
+        }
     }
 }
