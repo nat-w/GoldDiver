@@ -68,41 +68,41 @@ public class GameManager : MonoBehaviour
     // enemy and pickup spawn methods    
     private void spawnSmallShark()
     {
-        GameObject enemy = spawner.SpawnNew(smallShark, new Vector2(10, Random.Range(-3, 0)));
+        GameObject enemy = spawner.spawnNew(smallShark, new Vector2(10, Random.Range(-3, 0)));
         enemies.Add(enemy);
         enemy.GetComponent<EnemyController>().setSpeed(1);
     }
 
     private void spawnBigShark()
     {
-        GameObject enemy = spawner.SpawnNew(bigShark, new Vector2(10, Random.Range(-3, 0)));
+        GameObject enemy = spawner.spawnNew(bigShark, new Vector2(10, Random.Range(-3, 0)));
         enemies.Add(enemy);
         enemy.GetComponent<EnemyController>().setSpeed(2);
     }
 
     private void spawnOctopus()
     {
-        GameObject enemy = spawner.SpawnNew(octopus, new Vector2(10, Random.Range(-3, 0)));
+        GameObject enemy = spawner.spawnNew(octopus, new Vector2(10, Random.Range(-3, 0)));
         enemies.Add(enemy);
         enemy.GetComponent<EnemyController>().setSpeed(2);
     }
 
     private void spawnSmallGold()
     {
-        GameObject gold = spawner.SpawnNew(smallGold, new Vector2(Random.Range(-8, 8), -4));
+        GameObject gold = spawner.spawnNew(smallGold, new Vector2(Random.Range(-8, 8), -4));
         golds.Add(gold);
 
     }
 
     private void spawnBigGold()
     {
-        GameObject gold = spawner.SpawnNew(bigGold, new Vector2(Random.Range(-8, 8), -4));
+        GameObject gold = spawner.spawnNew(bigGold, new Vector2(Random.Range(-8, 8), -4));
         golds.Add(gold);
     }
 
     private void spawnBagGold()
     {
-        GameObject gold = spawner.SpawnNew(bagGold, new Vector2(Random.Range(-8, 8), -4));
+        GameObject gold = spawner.spawnNew(bagGold, new Vector2(Random.Range(-8, 8), -4));
         golds.Add(gold); 
     }
 }
