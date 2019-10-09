@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3754033263725834167}
   - component: {fileID: 6874686922905869232}
   - component: {fileID: 5853594017378432121}
+  - component: {fileID: 7368995648079783582}
   m_Layer: 0
   m_Name: BagGold
   m_TagString: Untagged
@@ -91,7 +92,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.17718452, y: 0.21384382}
@@ -107,3 +108,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.74549675, y: 0.59886265}
   m_EdgeRadius: 0
+--- !u!114 &7368995648079783582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5638737525971119428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58185f4c60f8d4c8a9d9a997d9d17297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 5
