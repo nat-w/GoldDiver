@@ -28,12 +28,12 @@ public class GameManager : MonoBehaviour
     private GameObject[] sharks = new GameObject[numSharks];
     private GameObject[] octos = new GameObject[numOctos];
     
-    // Start is called before the first frame update
     void Awake()
     {
         // get spawner
         spawner = GetComponent<Spawner>();
-            
+
+        spawnEnemy(1);
     }
 
     private void Update()
@@ -41,19 +41,29 @@ public class GameManager : MonoBehaviour
         if (!gameOver)
         {
             // spawn golds
-            foreach (GameObject gold in golds)
+            for (int i = 0; i < numGolds; i++)
             {
-                if(gold == null)
-                    s
+                if (golds[i] == null)
+                    golds[i] = spawnGold(Random.Range(1, 3));
+            }
+
+            // spawn golds
+            for (int i = 0; i < numSharks; i++)
+            {
+                if (sharks[i] == null)
+                    sharks[i] = spawnEnemy(Random.Range(1, 2));
             }
             
-            // spawn enemies
-            
-            // check level
-            if ((int) (score / 5) > level)
+            // spawn octo if level > 2
+            if (level >= 2 && octos[0] == null)
             {
-                level++;
-                
+                octos[0] = spawnEnemy(3);
+            }
+
+            // increase level every 5 points earned
+            if (score / 5 > level)
+            {
+                increaseLevel();
             }
         }
     }
@@ -114,10 +124,29 @@ public class GameManager : MonoBehaviour
               gold = spawner.spawnNew(bigGold, new Vector2(Random.Range(-8, 8), -4));
               return gold;
           case 3:
-              gold = spawner.spawnNew(bigGold, new Vector2(Random.Range(-8, 8), -4));
+              gold = spawner.spawnNew(bagGold, new Vector2(Random.Range(-8, 8), -4));
               return gold;
           default:
               return null;
+        }
+    }
+    
+    // destroys all enemies and golds and increases level
+    private void increaseLevel()
+    {
+        level++;
+        foreach (GameObject gold in golds)
+        {
+            Destroy(gold);
+        }
+        
+        foreach (GameObject shark in sharks)
+        {
+            Destroy(shark);
+        }
+        foreach (GameObject octo in octos)
+        {
+           Destroy(octo); 
         }
     }
 }

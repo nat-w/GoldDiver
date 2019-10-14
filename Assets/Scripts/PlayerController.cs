@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour
     private float speed = 3.0f;
     private int gravity = -1;
     private int balloons = 2;
+    private BalloonController balloonController;
     private bool canMove = true;
+    private bool canHurt = true;
     private GameObject carrying;
 
     // Start is called before the first frame update
@@ -19,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        balloonController = FindObjectOfType<BalloonController>();
     }
 
     // Update is called once per frame
@@ -36,6 +39,13 @@ public class PlayerController : MonoBehaviour
         {
             rb.position += new Vector2(0, 1);
             canMove = false;
+            anim.SetTrigger("SwimUp");
+        }
+        
+        // down
+        if (inputY < 0)
+        {
+            rb.velocity = new Vector2(0, -1) * currentSpeed;
         }
 
         // left
@@ -52,16 +62,15 @@ public class PlayerController : MonoBehaviour
 
         // delay for swimming up
         if (Input.GetKeyUp("w") || Input.GetKeyUp("up"))
+        {
             canMove = true;
+        }
     }
 
-    private void checkDead()
+    private void dead()
     {
-        if (balloons <= 0)
-        {
-            // TODO die animation
-            FindObjectOfType<GameManager>().GetComponent<GameManager>().setGameOver();
-        }
+        anim.SetBool("Dead", true);
+        FindObjectOfType<GameManager>().GetComponent<GameManager>().setGameOver();
     }
 
     // on touching gold, pick it up
@@ -70,16 +79,15 @@ public class PlayerController : MonoBehaviour
         if (carrying == null)
         {
             carrying = gold;
-            // anim for picking up 
             // reduce speed based on gold value
             currentSpeed -= carrying.GetComponent<GoldValue>().getValue() * 0.2f;
         }
     }
 
     // after touching boat while carrying gold, destroy gold and add points to score
-    private void OnCollisionEnter2D(Collision2D other)
+    public void dropOff()
     {
-        if (other.gameObject.tag.Equals("Boat") && carrying != null)
+        if (carrying != null)
         {
             // get value of gold
             int points = carrying.GetComponent<GoldValue>().getValue();
@@ -95,7 +103,18 @@ public class PlayerController : MonoBehaviour
     // take away balloons if touched by enemy
     public void addDamage()
     {
-        balloons--;
-        //TODO balloon popping anim
+        if (balloons <= 0)
+        {
+            canHurt = false;
+            dead();
+            return;
+        }
+
+        if (canHurt)
+        {
+            balloons--;
+            canHurt = false;
+            balloonController.balloonPop(balloons);
+        }
     }
 }
