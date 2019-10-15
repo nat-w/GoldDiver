@@ -5,15 +5,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Animator anim;
-    Rigidbody2D rb;
+    public bool canSwim = true;
+    public Animator anim;
+    private Rigidbody2D rb;
+    private SwimDelay delay;
     private float currentSpeed = 3.0f;
+    private bool isDead = false;
     private float speed = 3.0f;
-    private int gravity = -1;
+    private float gravity = -0.5f;
     private int balloons = 2;
     private BalloonController balloonController;
-    private bool canMove = true;
-    private bool canHurt = true;
     private GameObject carrying;
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        delay = GetComponent<SwimDelay>();
         balloonController = FindObjectOfType<BalloonController>();
     }
 
@@ -35,41 +37,38 @@ public class PlayerController : MonoBehaviour
         float inputY = Input.GetAxisRaw("Vertical");
 
         // up
-        if (inputY > 0 && canMove)
+        if (inputY > 0 && canSwim && !isDead)
         {
-            rb.position += new Vector2(0, 1);
-            canMove = false;
             anim.SetTrigger("SwimUp");
+            rb.velocity = new Vector2(0, 5) * speed;
+            canSwim = false;
+            GetComponent<SwimDelay>().startDelay();
         }
         
         // down
-        if (inputY < 0)
+        if (inputY < 0 && !isDead)
         {
             rb.velocity = new Vector2(0, -1) * currentSpeed;
         }
 
         // left
-        if (inputX < 0)
+        if (inputX < 0 && !isDead)
         {
             rb.velocity = new Vector2(inputX, -0.5f) * currentSpeed;
         }
         
         // right
-        if (inputX > 0)
+        if (inputX > 0 && !isDead)
         {
             rb.velocity = new Vector2(inputX, -0.5f) * currentSpeed;
-        }
-
-        // delay for swimming up
-        if (Input.GetKeyUp("w") || Input.GetKeyUp("up"))
-        {
-            canMove = true;
         }
     }
 
     private void dead()
     {
         anim.SetBool("Dead", true);
+        rb.velocity = new Vector2(0, -10f);
+        isDead = true;
         FindObjectOfType<GameManager>().GetComponent<GameManager>().setGameOver();
     }
 
@@ -80,7 +79,7 @@ public class PlayerController : MonoBehaviour
         {
             carrying = gold;
             // reduce speed based on gold value
-            currentSpeed -= carrying.GetComponent<GoldValue>().getValue() * 0.2f;
+            currentSpeed -= carrying.GetComponent<GoldController>().getValue() * 0.2f;
         }
     }
 
@@ -90,7 +89,7 @@ public class PlayerController : MonoBehaviour
         if (carrying != null)
         {
             // get value of gold
-            int points = carrying.GetComponent<GoldValue>().getValue();
+            int points = carrying.GetComponent<GoldController>().getValue();
             // destroy object and remove reference from player
             Destroy(carrying);
             carrying = null;
@@ -105,16 +104,13 @@ public class PlayerController : MonoBehaviour
     {
         if (balloons <= 0)
         {
-            canHurt = false;
             dead();
             return;
         }
-
-        if (canHurt)
-        {
-            balloons--;
-            canHurt = false;
-            balloonController.balloonPop(balloons);
-        }
+        
+        anim.SetTrigger("Hurt");
+        balloons--;
+        balloonController.balloonPop(balloons);
+        GetComponent<Invulnerable>().makeInvulnerable();
     }
 }

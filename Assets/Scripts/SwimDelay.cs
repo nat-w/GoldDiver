@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class SwimDelay : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    IEnumerator Delay()
     {
-        
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<PlayerController>().canSwim = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void startDelay()
     {
-        
+        StartCoroutine("Delay");
     }
 }

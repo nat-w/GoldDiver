@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -65,6 +66,10 @@ public class GameManager : MonoBehaviour
             {
                 increaseLevel();
             }
+        }
+        else
+        {
+            endGame();
         }
     }
 
@@ -148,5 +153,22 @@ public class GameManager : MonoBehaviour
         {
            Destroy(octo); 
         }
+    }
+
+    private void endGame()
+    {
+        StartCoroutine("Wait");
+    }
+
+    // restarts game by reloading main scene
+    private void restartGame()
+    {
+        SceneManager.LoadScene("Main", LoadSceneMode.Single);
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(2f);
+        Time.timeScale = 0.0f;
     }
 }

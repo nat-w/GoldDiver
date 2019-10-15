@@ -9,7 +9,7 @@
           <e p="BoatController.cs" t="Include" />
           <e p="EnemyController.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
-          <e p="GoldValue.cs" t="Include" />
+          <e p="GoldController.cs" t="Include" />
           <e p="Invulnerable.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="Spawner.cs" t="Include" />

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8489751562800413712}
   - component: {fileID: 8489751562800413713}
   - component: {fileID: 8489751562800413714}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SmallShark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60fc22d4e75674531af359596b6998e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2
 --- !u!50 &8489751562800413713
 Rigidbody2D:
   serializedVersion: 4
