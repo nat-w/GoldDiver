@@ -3,7 +3,19 @@ guid: c2e2372db01764e0891eb4832b15473c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - smallShark: {fileID: 8489751562800413741, guid: a2594cba3fa084312b6f3cffd27febb9,
+      type: 3}
+  - bigShark: {fileID: 7683280160098202328, guid: e39dfbd1551fa4daa9cdef0f11c129f2,
+      type: 3}
+  - octopus: {fileID: 8055588790594169994, guid: 8076e9c5f87fc4a9da9ca87bbcc4606e,
+      type: 3}
+  - smallGold: {fileID: 35230486417035474, guid: bda7ce3dbe9d6451589de756c98d077f,
+      type: 3}
+  - bigGold: {fileID: 8091777322016751014, guid: ce15d8a54396f4fc68b639712795968f,
+      type: 3}
+  - bagGold: {fileID: 5638737525971119428, guid: c5f39cf262a174032b1d602d1cb8e7e7,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

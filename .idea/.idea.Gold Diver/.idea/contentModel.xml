@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="BalloonController.cs" t="Include" />
+          <e p="BoatController.cs" t="Include" />
+          <e p="EnemyController.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="GoldController.cs" t="Include" />
+          <e p="Invulnerable.cs" t="Include" />
+          <e p="PlayerController.cs" t="Include" />
+          <e p="Spawner.cs" t="Include" />
+          <e p="SwimDelay.cs" t="Include" />
+          <e p="TextManager.cs" t="Include" />
+          <e p="Wrap.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Gold Diver.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.1/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.1/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_Gold Diver.1773823253.00" t="ExcludeRecursive" />
+  </component>
+</project>

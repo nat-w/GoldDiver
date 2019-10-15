@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8667917659549768551}
   - component: {fileID: 6993519646250617626}
   - component: {fileID: 690534412095975573}
-  - component: {fileID: -3504408752013939975}
+  - component: {fileID: 5426291792100905053}
   m_Layer: 0
   m_Name: BigGold
   m_TagString: Untagged
@@ -49,10 +49,10 @@ BoxCollider2D:
   m_Offset: {x: 0.013673857, y: -0.0888803}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.16, y: 0.16}
+    newSize: {x: 2.0625, y: 1.125}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
@@ -97,18 +97,18 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 167f39232e5d1431a978445dedcb08ba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.0625, y: 1.125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-3504408752013939975
+--- !u!114 &5426291792100905053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8091777322016751014}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58185f4c60f8d4c8a9d9a997d9d17297, type: 3}
+  m_Script: {fileID: 11500000, guid: f503538ab071d44358dd5f7001845723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   value: 3

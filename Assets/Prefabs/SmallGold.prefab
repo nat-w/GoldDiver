@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 35230486417035472}
   - component: {fileID: 35230486417035473}
   - component: {fileID: 6181836194754578171}
-  - component: {fileID: -6022779775127273719}
+  - component: {fileID: 3123463741802861149}
   m_Layer: 0
   m_Name: SmallGold
   m_TagString: Untagged
@@ -108,7 +108,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7376079, y: 0.4752164}
   m_EdgeRadius: 0
---- !u!114 &-6022779775127273719
+--- !u!114 &3123463741802861149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 35230486417035474}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58185f4c60f8d4c8a9d9a997d9d17297, type: 3}
+  m_Script: {fileID: 11500000, guid: f503538ab071d44358dd5f7001845723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
