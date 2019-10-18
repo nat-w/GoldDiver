@@ -7,14 +7,13 @@
         <e p="Scripts" t="Include">
           <e p="BalloonController.cs" t="Include" />
           <e p="BoatController.cs" t="Include" />
+          <e p="BoostController.cs" t="Include" />
           <e p="ButtonClick.cs" t="Include" />
           <e p="EnemyController.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="GoldController.cs" t="Include" />
-          <e p="Invulnerable.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="Spawner.cs" t="Include" />
-          <e p="SwimDelay.cs" t="Include" />
           <e p="TextManager.cs" t="Include" />
           <e p="Wrap.cs" t="Include" />
         </e>
