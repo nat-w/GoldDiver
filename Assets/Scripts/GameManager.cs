@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject smallGold;
     public GameObject bigGold;
     public GameObject bagGold;
-    
+
     // reference to spawner script
     private Spawner spawner;
     // current level
@@ -42,17 +42,17 @@ public class GameManager : MonoBehaviour
         if (!gameOver)
         {
             // spawn golds
-            for (int i = 0; i < numGolds; i++)
+            for (int i = 1; i < numGolds; i++)
             {
                 if (golds[i] == null)
-                    golds[i] = spawnGold(Random.Range(1, 3));
+                    golds[i] = spawnGold(Random.Range(1, 4));
             }
 
             // spawn golds
-            for (int i = 0; i < numSharks; i++)
+            for (int i = 1; i < numSharks; i++)
             {
                 if (sharks[i] == null)
-                    sharks[i] = spawnEnemy(Random.Range(1, 2));
+                    sharks[i] = spawnEnemy(Random.Range(1, 3));
             }
             
             // spawn octo if level > 2
@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
             }
 
             // increase level every 5 points earned
-            if (score / 5 > level)
+            if (score / 5 > (level - 1))
             {
                 increaseLevel();
             }
@@ -101,13 +101,15 @@ public class GameManager : MonoBehaviour
         switch (type)
         {
             case 1:
-                enemy = spawner.spawnNew(smallShark, new Vector2(10, Random.Range(-3, 0)));
+                enemy = spawner.spawnNew(smallShark, new Vector2(11, Random.Range(-3, 1)));
+                enemy.GetComponent<EnemyController>().setSpeed(Random.Range(1, 4));
                 return enemy;
             case 2:
-                enemy = spawner.spawnNew(bigShark, new Vector2(10, Random.Range(-3, 0)));
+                enemy = spawner.spawnNew(bigShark, new Vector2(11, Random.Range(-3, 1)));
+                enemy.GetComponent<EnemyController>().setSpeed(Random.Range(2, 4));
                 return enemy;
             case 3:
-                enemy = spawner.spawnNew(octopus, new Vector2(10, Random.Range(-3, 0)));
+                enemy = spawner.spawnNew(octopus, new Vector2(11, Random.Range(-3, 1)));
                 return enemy;
             default:
                 return null;
@@ -123,13 +125,13 @@ public class GameManager : MonoBehaviour
         switch (type)
         {
           case 1:
-              gold = spawner.spawnNew(smallGold, new Vector2(Random.Range(-8, 8), -4));
+              gold = spawner.spawnNew(smallGold, new Vector2(Random.Range(-8, 9), -4));
               return gold;
           case 2:
-              gold = spawner.spawnNew(bigGold, new Vector2(Random.Range(-8, 8), -4));
+              gold = spawner.spawnNew(bigGold, new Vector2(Random.Range(-8, 9), -4));
               return gold;
           case 3:
-              gold = spawner.spawnNew(bagGold, new Vector2(Random.Range(-8, 8), -4));
+              gold = spawner.spawnNew(bagGold, new Vector2(Random.Range(-8, 9), -4));
               return gold;
           default:
               return null;
@@ -158,11 +160,13 @@ public class GameManager : MonoBehaviour
     private void endGame()
     {
         StartCoroutine("Wait");
+        GameObject.Find("GameOverCanvas").GetComponent<Canvas>().enabled = true;
     }
 
     // restarts game by reloading main scene
-    private void restartGame()
+    public void restartGame()
     {
+        SceneManager.UnloadSceneAsync("Main");
         SceneManager.LoadScene("Main", LoadSceneMode.Single);
     }
 

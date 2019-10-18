@@ -58,6 +58,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BalloonController.cs" />
      <Compile Include="Assets\Scripts\BoatController.cs" />
+     <Compile Include="Assets\Scripts\ButtonClick.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GoldController.cs" />

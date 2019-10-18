@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 1230295449182523941}
   - component: {fileID: 6869890235288117821}
   - component: {fileID: 6217369297680573561}
+  - component: {fileID: 2809141225459473186}
+  - component: {fileID: 521796423085893140}
+  - component: {fileID: 5923493882355484507}
   m_Layer: 9
   m_Name: Octopus
   m_TagString: Untagged
@@ -70,8 +73,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 5453136732961072616, guid: c9dff92f2cc77415b82ebf33f822de29,
+  m_SortingOrder: 10
+  m_Sprite: {fileID: -6349360636359246829, guid: 996a8d59e395042c79571d43ab529c97,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -93,12 +96,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.03992635, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.46007365
 --- !u!114 &6217369297680573561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,4 +114,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60fc22d4e75674531af359596b6998e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
+  octo: 1
+  dir: 1
+--- !u!95 &2809141225459473186
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055588790594169994}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9ac80a571d510455aa2c63dd7d3047aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!50 &521796423085893140
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055588790594169994}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &5923493882355484507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055588790594169994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12559f2f3e10423c8e0d834b82f326c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

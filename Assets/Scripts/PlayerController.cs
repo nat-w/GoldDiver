@@ -6,9 +6,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public bool canSwim = true;
-    public Animator anim;
+    public GameObject sparkleParticle;
+    public GameObject bloodParticle;
     private Rigidbody2D rb;
-    private SwimDelay delay;
+    public Animator anim;
+    private AudioSource goldSound;
     private float currentSpeed = 3.0f;
     private bool isDead = false;
     private float speed = 3.0f;
@@ -22,7 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        delay = GetComponent<SwimDelay>();
+        goldSound = GetComponent<AudioSource>();
         balloonController = FindObjectOfType<BalloonController>();
     }
 
@@ -30,7 +32,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // reset velocity so diver doesn't fly away
-        rb.velocity = new Vector2(0, gravity);
+        if (canSwim)
+        {
+            rb.velocity = new Vector2(0, gravity);
+        }
         
         // get keyboard input
         float inputX = Input.GetAxisRaw("Horizontal");
@@ -40,7 +45,7 @@ public class PlayerController : MonoBehaviour
         if (inputY > 0 && canSwim && !isDead)
         {
             anim.SetTrigger("SwimUp");
-            rb.velocity = new Vector2(0, 5) * speed;
+            rb.velocity = new Vector2(0, 1) * speed;
             canSwim = false;
             GetComponent<SwimDelay>().startDelay();
         }
@@ -78,8 +83,18 @@ public class PlayerController : MonoBehaviour
         if (carrying == null)
         {
             carrying = gold;
+            
+            // create and destroy particle effect
+            GameObject sparkle = Instantiate(sparkleParticle, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
+            sparkle.GetComponent<ParticleSystem>().Play();
+            Destroy(sparkle, 5);
+            
+            // play sound effect
+            goldSound.Play();
+            
+            gold.GetComponent<GoldController>().setCarry(true);
             // reduce speed based on gold value
-            currentSpeed -= carrying.GetComponent<GoldController>().getValue() * 0.2f;
+            //currentSpeed -= carrying.GetComponent<GoldController>().getValue() * 0.2f;
         }
     }
 
@@ -90,10 +105,18 @@ public class PlayerController : MonoBehaviour
         {
             // get value of gold
             int points = carrying.GetComponent<GoldController>().getValue();
+            
+            // create and destroy particle effect
+            GameObject sparkle = Instantiate(sparkleParticle, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
+            sparkle.GetComponent<ParticleSystem>().Play();
+            Destroy(sparkle, 5);
+            
+            // play sound effect
+            goldSound.Play();
+            
             // destroy object and remove reference from player
             Destroy(carrying);
             carrying = null;
-            currentSpeed = speed;
             // send point info to game manager
             FindObjectOfType<GameManager>().GetComponent<GameManager>().addPoints(points);
         }
@@ -108,7 +131,14 @@ public class PlayerController : MonoBehaviour
             return;
         }
         
+        // set animation
         anim.SetTrigger("Hurt");
+        
+        // create and destroy particle effect
+        GameObject blood = Instantiate(bloodParticle, new Vector3(transform.position.x, transform.position.y), Quaternion.identity);
+        blood.GetComponent<ParticleSystem>().Play();
+        Destroy(blood, 5);
+        
         balloons--;
         balloonController.balloonPop(balloons);
         GetComponent<Invulnerable>().makeInvulnerable();

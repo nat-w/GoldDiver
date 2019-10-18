@@ -7,6 +7,7 @@
         <e p="Scripts" t="Include">
           <e p="BalloonController.cs" t="Include" />
           <e p="BoatController.cs" t="Include" />
+          <e p="ButtonClick.cs" t="Include" />
           <e p="EnemyController.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="GoldController.cs" t="Include" />

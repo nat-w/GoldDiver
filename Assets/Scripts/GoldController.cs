@@ -18,7 +18,15 @@ public class GoldController : MonoBehaviour
             transform.position = playerPos;
         }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<PlayerController>().pickUp(this.gameObject);
+        }
+    }
+
     public int getValue()
     {
         return value;

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8489751562800413712}
   - component: {fileID: 8489751562800413713}
   - component: {fileID: 8489751562800413714}
+  - component: {fileID: 4140057556830368566}
   m_Layer: 9
   m_Name: SmallShark
   m_TagString: Untagged
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
-  m_Sprite: {fileID: -1660858950259379499, guid: c9dff92f2cc77415b82ebf33f822de29,
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 1155449244194776696, guid: 5836f6f054c404b8a9e56c082bf6c3d1,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -110,6 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  octo: 0
+  dir: 1
 --- !u!50 &8489751562800413713
 Rigidbody2D:
   serializedVersion: 4
@@ -144,6 +147,25 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.030761182, y: 0.030760773}
-  m_Size: {x: 1.8818098, y: 1.0615263}
+  m_Offset: {x: -0.0201127, y: -0.043768886}
+  m_Size: {x: 1.1897589, y: 0.71018296}
   m_Direction: 1
+--- !u!95 &4140057556830368566
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8489751562800413741}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 03a8878b5539f4013ab5d8ff955c816c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
