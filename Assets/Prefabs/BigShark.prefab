@@ -139,7 +139,6 @@ MonoBehaviour:
   speed: 3
   octo: 0
   dir: -1
-  biteSound: {fileID: 0}
 --- !u!95 &-7136725681482083789
 Animator:
   serializedVersion: 3
@@ -181,7 +180,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 22ae4c11e9f754cc29fc6ed3c2cfec01, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
