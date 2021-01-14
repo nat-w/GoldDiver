@@ -12,9 +12,13 @@
 
 <img src=https://github.com/nat-w/GoldDiver/blob/master/Gifs/balloon-pop.gif/> <img src=https://github.com/nat-w/GoldDiver/blob/master/Gifs/octo.gif/>
 
-**Controls**: **W or Up**: Swim up in a short burst (this action has a short cooldown)
-	  **S or Down**: Sink faster
-	  **A or Left**: Swim left
-	  **D or Right**: Swim right
+**Controls**:
+**W or Up**: Swim up in a short burst (this action has a short cooldown)
+
+**S or Down**: Sink faster
+
+**A or Left**: Swim left
+
+**D or Right**: Swim right
 
 **Special Instructions to Run**: Run the project from within the Unity Editor or run either the Gold_Diver_Mac or Gold_Diver_Windows.exe depending on platform to play the built game.
